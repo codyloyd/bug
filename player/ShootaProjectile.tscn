@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player/Projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/circ-projectile.png" type="Texture" id=2]
+[ext_resource path="res://player/ShootaProjectile.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "spin"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 2.23607
+
+[node name="ShootaProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+rotation = 3.26321
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "spin"
+anims/spin = SubResource( 1 )
+
+[node name="Hitbox" parent="." index="3"]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 2 )
+
+[editable path="Hitbox"]

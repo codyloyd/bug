@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level_connections/30-28.tres" type="Resource" id=3]
+[ext_resource path="res://level_connections/28-24.tres" type="Resource" id=4]
+[ext_resource path="res://world/decor.png" type="Texture" id=5]
+[ext_resource path="res://enemies/TallEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://world/spikes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/Walker.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/Bird.tscn" type="PackedScene" id=9]
+[ext_resource path="res://enemies/Crawler.tscn" type="PackedScene" id=10]
+
+[node name="Level_28" instance=ExtResource( 1 )]
+
+[node name="TileMap" parent="." index="0"]
+tile_data = PoolIntArray( 0, 3, 65540, 1, 3, 196613, 2, 3, 196613, 3, 3, 196613, 4, 3, 196613, 5, 3, 196613, 6, 3, 196613, 7, 3, 196613, 8, 3, 196613, 9, 3, 196613, 10, 3, 196613, 11, 3, 196613, 12, 3, 196613, 13, 3, 196613, 14, 3, 196613, 15, 3, 196613, 16, 3, 196613, 17, 3, 196613, 18, 3, 196613, 19, 3, 196613, 20, 3, 196613, 21, 3, 196613, 22, 3, 196613, 23, 3, 196613, 24, 3, 196613, 25, 3, 196613, 26, 3, 196613, 27, 3, 196613, 28, 3, 196613, 29, 3, 196613, 30, 3, 196613, 31, 3, 196613, 32, 3, 196613, 33, 3, 196613, 34, 3, 196613, 35, 3, 196613, 36, 3, 196614, 39, 3, 196612, 40, 3, 196613, 41, 3, 65543, 65536, 3, 65538, 65577, 3, 65538, 131072, 3, 65538, 131110, 3, 65537, 131113, 3, 65538, 196608, 3, 65538, 196643, 3, 196612, 196644, 3, 196613, 196645, 3, 196613, 196646, 3, 196611, 196649, 3, 65538, 262144, 3, 65538, 262185, 3, 65538, 327680, 3, 131076, 327681, 3, 2, 327682, 3, 2, 327683, 3, 3, 327720, 3, 1, 327721, 3, 131079, 393216, 3, 65536, 393217, 3, 262144, 393218, 3, 131073, 393219, 3, 5, 393225, 3, 1, 393226, 3, 65542, 393227, 3, 65542, 393228, 3, 2, 393229, 3, 65542, 393230, 3, 65542, 393231, 3, 2, 393232, 3, 2, 393233, 3, 65542, 393234, 3, 2, 393235, 3, 2, 393236, 3, 2, 393237, 3, 2, 393238, 3, 65542, 393239, 3, 2, 393240, 3, 2, 393241, 3, 65542, 393242, 3, 65542, 393243, 3, 2, 393244, 3, 2, 393245, 3, 3, 393255, 3, 1, 393256, 3, 131078, 393257, 3, 4, 458752, 3, 131072, 458753, 3, 6, 458754, 3, 5, 458760, 3, 196612, 458761, 3, 196610, 458762, 3, 6, 458763, 3, 6, 458764, 3, 6, 458765, 3, 6, 458766, 3, 6, 458767, 3, 6, 458768, 3, 6, 458769, 3, 6, 458770, 3, 6, 458771, 3, 6, 458772, 3, 6, 458773, 3, 6, 458774, 3, 6, 458775, 3, 6, 458776, 3, 6, 458777, 3, 6, 458778, 3, 6, 458779, 3, 131074, 458780, 3, 0, 458781, 3, 131077, 458782, 3, 65542, 458783, 3, 65542, 458784, 3, 2, 458785, 3, 2, 458786, 3, 2, 458787, 3, 2, 458788, 3, 65542, 458789, 3, 65542, 458790, 3, 65542, 458791, 3, 131078, 458792, 3, 0, 458793, 3, 4, 524288, 3, 65538, 524315, 3, 7, 524316, 3, 6, 524317, 3, 6, 524318, 3, 6, 524319, 3, 6, 524320, 3, 6, 524321, 3, 6, 524322, 3, 6, 524323, 3, 131074, 524324, 3, 262144, 524325, 3, 0, 524326, 3, 0, 524327, 3, 0, 524328, 3, 0, 524329, 3, 4, 589824, 3, 65538, 589859, 3, 65536, 589860, 3, 0, 589861, 3, 262144, 589862, 3, 131073, 589863, 3, 6, 589864, 3, 6, 589865, 3, 131075, 655360, 3, 65538, 655363, 3, 196612, 655364, 3, 196613, 655365, 3, 196614, 655395, 3, 7, 655396, 3, 6, 655397, 3, 6, 655398, 3, 5, 655401, 3, 65538, 720896, 3, 65538, 720917, 3, 196612, 720918, 3, 196613, 720919, 3, 196614, 720937, 3, 65538, 786432, 3, 65538, 786441, 3, 196612, 786442, 3, 196613, 786443, 3, 196614, 786473, 3, 65538, 851968, 3, 65538, 852009, 3, 65538, 917504, 3, 196608, 917505, 3, 196613, 917506, 3, 196613, 917507, 3, 196613, 917508, 3, 196613, 917509, 3, 196613, 917510, 3, 196613, 917511, 3, 196613, 917512, 3, 196613, 917513, 3, 196613, 917514, 3, 196613, 917515, 3, 196613, 917516, 3, 196613, 917517, 3, 196613, 917518, 3, 196613, 917519, 3, 196613, 917520, 3, 196613, 917521, 3, 196613, 917522, 3, 196613, 917523, 3, 196613, 917524, 3, 196613, 917525, 3, 196613, 917526, 3, 196613, 917527, 3, 196614, 917530, 3, 196612, 917531, 3, 196613, 917532, 3, 196613, 917533, 3, 196613, 917534, 3, 196613, 917535, 3, 196613, 917536, 3, 196613, 917537, 3, 196613, 917538, 3, 196613, 917539, 3, 196613, 917540, 3, 196613, 917541, 3, 196613, 917542, 3, 196613, 917543, 3, 196613, 917544, 3, 196613, 917545, 3, 196611 )
+
+[node name="Door2" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 150, 93 )
+rotation = 1.5708
+connection = ExtResource( 4 )
+next_level = "res://levels/Level_24.tscn"
+
+[node name="Door" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( 228, -3 )
+rotation = 4.71239
+connection = ExtResource( 3 )
+next_level = "res://levels/Level_30.tscn"
+
+[node name="decor" type="Sprite" parent="." index="4"]
+position = Vector2( 243, 8 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 34, 17, 7, 5 )
+
+[node name="decor2" type="Sprite" parent="." index="5"]
+position = Vector2( 245, 15 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 32, 46, 3, 11 )
+
+[node name="decor3" type="Sprite" parent="." index="6"]
+position = Vector2( 228, 25 )
+rotation = -1.5708
+scale = Vector2( -1, 1 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 32, 43, 3, 11 )
+
+[node name="spikes" parent="." index="7" instance=ExtResource( 7 )]
+position = Vector2( 6, 30 )
+
+[node name="spikes2" parent="." index="8" instance=ExtResource( 7 )]
+position = Vector2( 12, 30 )
+
+[node name="spikes3" parent="." index="9" instance=ExtResource( 7 )]
+position = Vector2( 18, 30 )
+
+[node name="spikes4" parent="." index="10" instance=ExtResource( 7 )]
+position = Vector2( 6, 8 )
+rotation = 1.5708
+
+[node name="spikes5" parent="." index="11" instance=ExtResource( 7 )]
+position = Vector2( 6, 14 )
+rotation = 1.5708
+
+[node name="spikes6" parent="." index="12" instance=ExtResource( 7 )]
+position = Vector2( 6, 20 )
+rotation = 1.5708
+
+[node name="spikes7" parent="." index="13" instance=ExtResource( 7 )]
+position = Vector2( 19, 6 )
+rotation = 3.14159
+
+[node name="spikes8" parent="." index="14" instance=ExtResource( 7 )]
+position = Vector2( 13, 6 )
+rotation = 3.14159
+
+[node name="spikes9" parent="." index="15" instance=ExtResource( 7 )]
+position = Vector2( 26, 6 )
+rotation = 3.14159
+
+[node name="TallEnemy" parent="." index="16" instance=ExtResource( 6 )]
+position = Vector2( 201, 72 )
+
+[node name="TallEnemy2" parent="." index="17" instance=ExtResource( 6 )]
+position = Vector2( 72, 24 )
+
+[node name="Bird" parent="." index="18" instance=ExtResource( 9 )]
+position = Vector2( 164, 11 )
+
+[node name="Bird2" parent="." index="19" instance=ExtResource( 9 )]
+position = Vector2( 175, 20 )
+
+[node name="Bird3" parent="." index="20" instance=ExtResource( 9 )]
+position = Vector2( 224, 35 )
+
+[node name="Walker" parent="." index="21" instance=ExtResource( 8 )]
+position = Vector2( 108, 32 )
+
+[node name="Crawler" parent="." index="22" instance=ExtResource( 10 )]
+position = Vector2( 28, 57 )
+
+[node name="Crawler2" parent="." index="23" instance=ExtResource( 10 )]
+position = Vector2( 58, 69 )
+
+[node name="Crawler3" parent="." index="24" instance=ExtResource( 10 )]
+position = Vector2( 141, 63 )
+
+[editable path="LevelBackground"]

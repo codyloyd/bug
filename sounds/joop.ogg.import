@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/joop.ogg-08bc4080524b4f1ced8ea3f2453de223.oggstr"
+
+[deps]
+
+source_file="res://sounds/joop.ogg"
+dest_files=[ "res://.import/joop.ogg-08bc4080524b4f1ced8ea3f2453de223.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

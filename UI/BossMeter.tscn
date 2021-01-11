@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="BossMeter" type="CanvasLayer"]
+
+[node name="MeterRect" type="ColorRect" parent="."]
+margin_left = 0.999998
+margin_top = 4.25127
+margin_right = 113.0
+margin_bottom = 5.25127
+color = Color( 0.882353, 0.254902, 0.254902, 0.952941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

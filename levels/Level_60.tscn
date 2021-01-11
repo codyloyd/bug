@@ -1,0 +1,83 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level_connections/59-60.tres" type="Resource" id=3]
+[ext_resource path="res://level_connections/60-61.tres" type="Resource" id=4]
+[ext_resource path="res://world/MovingPlatform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world/ZapGate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://world/spikes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/FlyGuy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/Bird.tscn" type="PackedScene" id=9]
+[ext_resource path="res://enemies/MovingSkeet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://enemies/BossBomb.tscn" type="PackedScene" id=11]
+[ext_resource path="res://world/RedGate.tscn" type="PackedScene" id=12]
+[ext_resource path="res://world/RedSwitch.tscn" type="PackedScene" id=13]
+
+[node name="Level_60" instance=ExtResource( 1 )]
+
+[node name="TileMap" parent="." index="0"]
+tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1, 13, 0, 1, 14, 0, 1, 15, 0, 1, 16, 0, 1, 17, 0, 1, 18, 0, 2, 65536, 0, 4, 65537, 0, 131075, 65538, 0, 65539, 65539, 0, 65539, 65540, 0, 65539, 65541, 0, 65539, 65542, 0, 65539, 65543, 0, 131072, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 131075, 65550, 0, 65539, 65551, 0, 65539, 65552, 0, 65539, 65553, 0, 131072, 65554, 0, 3, 131072, 0, 4, 131073, 0, 3, 131079, 0, 65537, 131080, 0, 65539, 131081, 0, 65539, 131082, 0, 65539, 131083, 0, 131072, 131084, 0, 131075, 131085, 0, 65538, 131089, 0, 65537, 131090, 0, 65538, 196608, 0, 4, 196609, 0, 3, 196619, 0, 393217, 196620, 0, 65538, 262144, 0, 4, 262145, 0, 3, 262147, 0, 196612, 262155, 0, 262145, 327680, 0, 4, 327681, 0, 3, 327687, 0, 262144, 327691, 0, 262145, 327694, 0, 458754, 327695, 0, 458756, 327696, 0, 458756, 327697, 0, 327683, 327698, 0, 2, 393216, 0, 4, 393217, 0, 3, 393223, 0, 393219, 393224, 0, 2, 393227, 0, 262145, 393233, 0, 4, 393234, 0, 3, 458752, 0, 4, 458753, 0, 3, 458757, 0, 196612, 458759, 0, 4, 458760, 0, 3, 458763, 0, 262145, 458769, 0, 4, 458770, 0, 3, 524288, 0, 4, 524289, 0, 3, 524295, 0, 4, 524296, 0, 3, 524299, 0, 393219, 524300, 0, 2, 524305, 0, 4, 524306, 0, 3, 589824, 0, 4, 589825, 0, 3, 589831, 0, 4, 589832, 0, 3, 589835, 0, 393217, 589836, 0, 65538, 589841, 0, 4, 589842, 0, 3, 655360, 0, 4, 655361, 0, 3, 655367, 0, 65537, 655368, 0, 393218, 655371, 0, 262145, 655377, 0, 4, 655378, 0, 3, 720896, 0, 4, 720897, 0, 3, 720900, 0, 196612, 720904, 0, 262146, 720907, 0, 393219, 720908, 0, 1, 720909, 0, 2, 720913, 0, 4, 720914, 0, 3, 786432, 0, 4, 786433, 0, 3, 786439, 0, 196612, 786443, 0, 4, 786444, 0, 0, 786445, 0, 3, 786449, 0, 4, 786450, 0, 3, 851968, 0, 4, 851969, 0, 3, 851974, 0, 262144, 851979, 0, 4, 851980, 0, 0, 851981, 0, 3, 851985, 0, 4, 851986, 0, 3, 917504, 0, 4, 917505, 0, 3, 917510, 0, 262145, 917512, 0, 196612, 917515, 0, 4, 917516, 0, 0, 917517, 0, 3, 917521, 0, 4, 917522, 0, 3, 983040, 0, 4, 983041, 0, 3, 983046, 0, 393219, 983047, 0, 2, 983051, 0, 4, 983052, 0, 0, 983053, 0, 3, 983057, 0, 4, 983058, 0, 3, 1048576, 0, 4, 1048577, 0, 3, 1048581, 0, 65536, 1048582, 0, 131073, 1048583, 0, 131076, 1048584, 0, 2, 1048587, 0, 65537, 1048588, 0, 131072, 1048589, 0, 3, 1048593, 0, 4, 1048594, 0, 3, 1114112, 0, 4, 1114113, 0, 3, 1114117, 0, 4, 1114118, 0, 0, 1114119, 0, 131075, 1114120, 0, 65538, 1114124, 0, 4, 1114125, 0, 3, 1114129, 0, 4, 1114130, 0, 3, 1179648, 0, 4, 1179649, 0, 3, 1179653, 0, 65537, 1179654, 0, 131072, 1179655, 0, 3, 1179660, 0, 393217, 1179661, 0, 65538, 1179665, 0, 4, 1179666, 0, 3, 1245184, 0, 4, 1245185, 0, 3, 1245190, 0, 4, 1245191, 0, 3, 1245196, 0, 262145, 1245201, 0, 4, 1245202, 0, 3, 1310720, 0, 4, 1310721, 0, 3, 1310726, 0, 65537, 1310727, 0, 65540, 1310728, 0, 2, 1310731, 0, 65536, 1310732, 0, 393220, 1310737, 0, 4, 1310738, 0, 3, 1376256, 0, 4, 1376257, 0, 3, 1376263, 0, 4, 1376264, 0, 3, 1376267, 0, 4, 1376268, 0, 3, 1376273, 0, 4, 1376274, 0, 3, 1441792, 0, 4, 1441793, 0, 3, 1441795, 0, 196612, 1441798, 0, 65536, 1441799, 0, 131073, 1441800, 0, 3, 1441803, 0, 65537, 1441804, 0, 65538, 1441809, 0, 4, 1441810, 0, 3, 1507328, 0, 65537, 1507329, 0, 65538, 1507334, 0, 4, 1507335, 0, 131075, 1507336, 0, 65538, 1507341, 0, 196612, 1507345, 0, 4, 1507346, 0, 3, 1572870, 0, 65537, 1572871, 0, 393218, 1572881, 0, 4, 1572882, 0, 3, 1638407, 0, 262145, 1638417, 0, 4, 1638418, 0, 3, 1703936, 0, 65536, 1703937, 0, 1, 1703938, 0, 1, 1703939, 0, 1, 1703940, 0, 1, 1703941, 0, 1, 1703942, 0, 1, 1703943, 0, 327681, 1703944, 0, 1, 1703945, 0, 1, 1703946, 0, 1, 1703947, 0, 1, 1703948, 0, 1, 1703949, 0, 1, 1703950, 0, 1, 1703951, 0, 1, 1703952, 0, 1, 1703953, 0, 131073, 1703954, 0, 3, 1769472, 0, 65537, 1769473, 0, 65539, 1769474, 0, 65539, 1769475, 0, 65539, 1769476, 0, 65539, 1769477, 0, 65539, 1769478, 0, 65539, 1769479, 0, 65539, 1769480, 0, 65539, 1769481, 0, 65539, 1769482, 0, 65539, 1769483, 0, 65539, 1769484, 0, 65539, 1769485, 0, 65539, 1769486, 0, 65539, 1769487, 0, 65539, 1769488, 0, 65539, 1769489, 0, 65539, 1769490, 0, 65538 )
+
+[node name="PlayerSpawn" parent="." index="2"]
+position = Vector2( 91, 25 )
+
+[node name="Door" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( 117, 24 )
+connection = ExtResource( 3 )
+next_level = "res://levels/Level_59.tscn"
+
+[node name="Door2" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( -3, 150 )
+rotation = 3.14159
+connection = ExtResource( 4 )
+next_level = "res://levels/Level_61.tscn"
+
+[node name="MovingPlatform" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 93, 142 )
+
+[node name="ZapGate" parent="." index="6" instance=ExtResource( 6 )]
+position = Vector2( 102, 153 )
+rotation = 3.14159
+
+[node name="RayCast2D" parent="ZapGate" index="0"]
+cast_to = Vector2( 80, 0 )
+
+[node name="spikes" parent="." index="7" instance=ExtResource( 7 )]
+position = Vector2( 72, 110 )
+rotation = -1.5708
+
+[node name="spikes2" parent="." index="8" instance=ExtResource( 7 )]
+position = Vector2( 72, 117 )
+rotation = -1.5708
+
+[node name="FlyGuy" parent="." index="9" instance=ExtResource( 8 )]
+position = Vector2( 53, 77 )
+scale = Vector2( -1, 1 )
+
+[node name="Bird" parent="." index="10" instance=ExtResource( 9 )]
+position = Vector2( 21, 17 )
+
+[node name="Bird2" parent="." index="11" instance=ExtResource( 9 )]
+position = Vector2( 19, 52 )
+
+[node name="MovingSkeet" parent="." index="12" instance=ExtResource( 10 )]
+position = Vector2( 63, 63 )
+
+[node name="BossBomb" parent="." index="13" instance=ExtResource( 11 )]
+position = Vector2( 39, 75 )
+
+[node name="BossBomb2" parent="." index="14" instance=ExtResource( 11 )]
+position = Vector2( 34, 93 )
+
+[node name="BossBomb3" parent="." index="15" instance=ExtResource( 11 )]
+position = Vector2( 39, 129 )
+
+[node name="RedGate" parent="." index="16" instance=ExtResource( 12 )]
+position = Vector2( 10, 150 )
+
+[node name="RedSwitch" parent="." index="17" instance=ExtResource( 13 )]
+position = Vector2( 13, 135 )
+gate_path = NodePath("../RedGate")
+
+[editable path="ZapGate"]

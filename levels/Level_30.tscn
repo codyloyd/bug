@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level_connections/31-30.tres" type="Resource" id=3]
+[ext_resource path="res://level_connections/30-27.tres" type="Resource" id=4]
+[ext_resource path="res://level_connections/30-28.tres" type="Resource" id=5]
+[ext_resource path="res://world/decor.png" type="Texture" id=6]
+
+[node name="Level_30" instance=ExtResource( 1 )]
+
+[node name="TileMap" parent="." index="0"]
+tile_data = PoolIntArray( 0, 3, 65540, 1, 3, 196613, 2, 3, 196613, 3, 3, 196613, 4, 3, 196613, 5, 3, 196613, 6, 3, 196613, 7, 3, 196613, 8, 3, 196613, 9, 3, 196613, 10, 3, 0, 11, 3, 65541, 12, 3, 196613, 13, 3, 196614, 16, 3, 196612, 17, 3, 196613, 18, 3, 65543, 65536, 3, 65538, 65546, 3, 65536, 65547, 3, 4, 65554, 3, 65538, 131072, 3, 65538, 131082, 3, 65536, 131083, 3, 4, 131087, 4, 0, 131090, 3, 65538, 196608, 3, 65538, 196618, 3, 7, 196619, 3, 5, 196626, 3, 65539, 262144, 3, 65538, 327680, 3, 65538, 327690, 3, 1, 327691, 3, 3, 327694, 4, 0, 327698, 3, 65537, 393216, 3, 65538, 393226, 3, 65536, 393227, 3, 4, 393234, 3, 65538, 458752, 3, 131076, 458753, 3, 65542, 458754, 3, 2, 458755, 3, 65541, 458756, 3, 196614, 458759, 3, 1, 458760, 3, 2, 458761, 3, 2, 458762, 3, 131078, 458763, 3, 131077, 458764, 3, 2, 458765, 3, 65542, 458766, 3, 2, 458767, 3, 65542, 458768, 3, 65542, 458769, 3, 65542, 458770, 3, 131079, 524288, 3, 131072, 524289, 3, 6, 524290, 3, 6, 524291, 3, 5, 524295, 3, 7, 524296, 3, 6, 524297, 3, 6, 524298, 3, 131074, 524299, 3, 131073, 524300, 3, 6, 524301, 3, 6, 524302, 3, 6, 524303, 3, 6, 524304, 3, 6, 524305, 3, 6, 524306, 3, 131075, 589824, 3, 65538, 589834, 3, 65536, 589835, 3, 4, 589842, 3, 65538, 655360, 3, 65538, 655366, -1073741820, 0, 655370, 3, 65536, 655371, 3, 4, 655378, 3, 65538, 720896, 3, 65538, 720906, 3, 7, 720907, 3, 5, 720914, 3, 65538, 786432, 3, 65538, 786436, 4, 0, 786450, 3, 65538, 851968, 3, 65538, 851978, 3, 1, 851979, 3, 3, 851986, 3, 65538, 917504, 3, 65538, 917514, 3, 65536, 917515, 3, 4, 917522, 3, 65538, 983040, 3, 196608, 983041, 3, 196613, 983042, 3, 196613, 983043, 3, 196613, 983044, 3, 196613, 983045, 3, 196613, 983046, 3, 196613, 983047, 3, 196613, 983048, 3, 196613, 983049, 3, 196613, 983050, 3, 196610, 983051, 3, 196609, 983052, 3, 196613, 983053, 3, 196614, 983056, 3, 196612, 983057, 3, 196613, 983058, 3, 196611 )
+
+[node name="Door3" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 90, 98 )
+rotation = 1.5708
+connection = ExtResource( 5 )
+next_level = "res://levels/Level_28.tscn"
+
+[node name="Door2" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( 117, 27 )
+connection = ExtResource( 4 )
+next_level = "res://levels/Level_27.tscn"
+
+[node name="Door" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( 90, -2 )
+rotation = 4.71239
+connection = ExtResource( 3 )
+next_level = "res://levels/Level_31.tscn"
+
+[node name="PlayerSpawn" type="Position2D" parent="." index="5"]
+position = Vector2( 25, 21 )
+
+[node name="decor" type="Sprite" parent="." index="6"]
+position = Vector2( 12, 11 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 15, 15, 18, 15 )
+
+[node name="decor2" type="Sprite" parent="." index="7"]
+position = Vector2( 52, 8 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 34, 15, 7, 10 )
+
+[node name="decor3" type="Sprite" parent="." index="8"]
+position = Vector2( 73, 16 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 17, 39, 4, 12 )
+
+[node name="decor4" type="Sprite" parent="." index="9"]
+position = Vector2( 75, 10 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 33, 46, 2, 7 )
+
+[node name="decor7" type="Sprite" parent="." index="10"]
+position = Vector2( 59, 60 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 47, 18, 2, 10 )
+
+[node name="decor9" type="Sprite" parent="." index="11"]
+position = Vector2( 55, 58 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 36, 19, 4, 2 )
+
+[node name="decor8" type="Sprite" parent="." index="12"]
+position = Vector2( 54, 55 )
+rotation = 1.5708
+scale = Vector2( 1, -1 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 32, 41, 4, 10 )
+
+[node name="decor6" type="Sprite" parent="." index="13"]
+position = Vector2( 73, 38 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 33, 46, 2, 7 )
+
+[node name="decor5" type="Sprite" parent="." index="14"]
+position = Vector2( 73, 43 )
+rotation = -3.3074
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 34, 15, 7, 7 )
+
+[editable path="LevelBackground"]

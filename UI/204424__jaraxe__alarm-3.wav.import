@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/204424__jaraxe__alarm-3.wav-592fca93aeb777b7ad5a522b724b0573.sample"
+
+[deps]
+
+source_file="res://UI/204424__jaraxe__alarm-3.wav"
+dest_files=[ "res://.import/204424__jaraxe__alarm-3.wav-592fca93aeb777b7ad5a522b724b0573.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

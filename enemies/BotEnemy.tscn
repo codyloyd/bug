@@ -1,0 +1,154 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://enemies/bot.png" type="Texture" id=1]
+[ext_resource path="res://enemies/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/BotEnemy.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3, 6 )
+
+[sub_resource type="Animation" id=2]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( -0.5, -0.5, -0.5, -0.5 ),
+"update": 0,
+"values": [ 0.0, 0.0, 7.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "ROLL_RIGHT"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( -0.5, -0.5, -0.5, -0.5 ),
+"update": 0,
+"values": [ 0.0, 0.0, -7.0, 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 2, 6 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 3, 6 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 24, 27 )
+
+[node name="BotEnemy" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+MAX_SPEED = 7
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, -4 )
+texture = ExtResource( 1 )
+hframes = 6
+frame = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2( 0, -4 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "ROLL"
+anims/ROLL = SubResource( 2 )
+anims/ROLL_RIGHT = SubResource( 3 )
+
+[node name="Hitbox" parent="." index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 0, -4 )
+shape = SubResource( 4 )
+
+[node name="Hurtbox" parent="." index="4"]
+visible = false
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -4 )
+shape = SubResource( 5 )
+
+[node name="FloorLeft" type="RayCast2D" parent="." index="5"]
+visible = false
+position = Vector2( -2, 2 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+collision_mask = 2
+
+[node name="FloorRight" type="RayCast2D" parent="." index="6"]
+visible = false
+position = Vector2( 3, 2 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+collision_mask = 2
+
+[node name="WallLeft" type="RayCast2D" parent="." index="7"]
+visible = false
+position = Vector2( 0, -3 )
+enabled = true
+cast_to = Vector2( -4, 0 )
+collision_mask = 2
+
+[node name="WallRight" type="RayCast2D" parent="." index="8"]
+visible = false
+position = Vector2( 0, -3 )
+enabled = true
+cast_to = Vector2( 4, 0 )
+collision_mask = 2
+
+[node name="Area2D" type="Area2D" parent="." index="9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 0, -26 )
+shape = SubResource( 6 )
+
+[node name="Muzzle" type="Position2D" parent="." index="10"]
+position = Vector2( 0, -8 )
+
+[node name="EnemyStats" parent="." index="11"]
+max_health = 5
+health = 5
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[editable path="Hitbox"]
+
+[editable path="Hurtbox"]

@@ -1,0 +1,165 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/BOSS2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/ZapGate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/BossMeter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/TileMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/Level_21.gd" type="Script" id=6]
+[ext_resource path="res://world/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://level_connections/21-50.tres" type="Resource" id=8]
+[ext_resource path="res://level_connections/21-51.tres" type="Resource" id=9]
+[ext_resource path="res://UI/altopixel.tres" type="DynamicFont" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "run"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("zapgate:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "turn_on"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 62, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 10 )
+
+[node name="Level_21" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+
+[node name="TileMap" parent="." index="0"]
+tile_data = PoolIntArray( 0, 1, 131072, 1, 1, 65538, 2, 1, 65538, 3, 1, 131074, 4, 1, 2, 5, 1, 2, 6, 1, 2, 7, 1, 2, 8, 1, 2, 9, 1, 2, 10, 1, 2, 11, 1, 2, 12, 1, 2, 13, 1, 2, 14, 1, 2, 15, 1, 2, 16, 1, 2, 17, 1, 2, 18, 1, 2, 19, 1, 2, 20, 1, 2, 21, 1, 131073, 22, 1, 65538, 23, 1, 65538, 24, 1, 131075, 65536, 1, 65542, 65537, 4, 0, 65538, 4, 0, 65539, 1, 7, 65540, 1, 6, 65541, 1, 6, 65542, 1, 6, 65543, 1, 6, 65544, 1, 6, 65545, 1, 6, 65546, 1, 6, 65547, 1, 6, 65548, 1, 6, 65549, 1, 6, 65550, 1, 6, 65551, 1, 6, 65552, 1, 6, 65553, 1, 6, 65554, 1, 6, 65555, 1, 6, 65556, 1, 6, 65557, 1, 5, 65558, 4, 0, 65559, 4, 0, 65560, 1, 65542, 131072, 1, 65542, 131073, 4, 0, 131095, 4, 0, 131096, 1, 65542, 196608, 1, 196608, 196609, 1, 3, 196631, 1, 1, 196632, 1, 327681, 262144, 1, 65536, 262145, 1, 4, 262167, 1, 65536, 262168, 1, 4, 327680, 1, 65536, 327681, 1, 4, 327684, 1, 65537, 327685, 1, 65538, 327686, 1, 65539, 327703, 1, 65536, 327704, 1, 4, 393216, 1, 65536, 393217, 1, 4, 393239, 1, 65536, 393240, 1, 4, 458752, 1, 65536, 458753, 1, 4, 458775, 1, 65536, 458776, 1, 4, 524288, 1, 65536, 524289, 1, 4, 524311, 1, 65536, 524312, 1, 4, 589824, 1, 65536, 589825, 1, 4, 589833, 1, 65537, 589834, 1, 65538, 589835, 1, 65539, 589843, 1, 65537, 589844, 1, 65538, 589845, 1, 65538, 589846, 1, 65538, 589847, 1, 327684, 589848, 1, 4, 655360, 1, 65536, 655361, 1, 4, 655383, 1, 65536, 655384, 1, 4, 720896, 1, 65536, 720897, 1, 4, 720919, 1, 65536, 720920, 1, 4, 786432, 1, 7, 786433, 1, 5, 786455, 1, 7, 786456, 1, 5, 917510, 1, 65537, 917511, 1, 65538, 917512, 1, 65539, 917516, 1, 65537, 917517, 1, 65538, 917518, 1, 65539, 983040, 1, 1, 983041, 1, 3, 983063, 1, 1, 983064, 1, 3, 1048576, 1, 65536, 1048577, 1, 4, 1048592, 1, 65537, 1048593, 1, 65538, 1048594, 1, 65538, 1048595, 1, 65538, 1048596, 1, 65539, 1048599, 1, 65536, 1048600, 1, 4, 1114112, 1, 65536, 1114113, 1, 4, 1114115, 1, 65537, 1114116, 1, 65538, 1114117, 1, 65539, 1114135, 1, 65536, 1114136, 1, 4, 1179648, 1, 131076, 1179649, 1, 5, 1179671, 1, 7, 1179672, 1, 131079, 1245184, 1, 65542, 1245185, 4, 0, 1245186, 1, 1, 1245187, 1, 2, 1245188, 1, 2, 1245189, 1, 2, 1245190, 1, 2, 1245191, 1, 2, 1245192, 1, 2, 1245193, 1, 2, 1245194, 1, 2, 1245195, 1, 2, 1245196, 1, 2, 1245197, 1, 2, 1245198, 1, 2, 1245199, 1, 2, 1245200, 1, 2, 1245201, 1, 2, 1245202, 1, 2, 1245203, 1, 2, 1245204, 1, 2, 1245205, 1, 2, 1245206, 1, 3, 1245207, 4, 0, 1245208, 1, 65542, 1310720, 1, 196612, 1310721, 1, 65538, 1310722, 1, 196614, 1310723, 1, 6, 1310724, 1, 6, 1310725, 1, 6, 1310726, 1, 6, 1310727, 1, 6, 1310728, 1, 6, 1310729, 1, 6, 1310730, 1, 6, 1310731, 1, 6, 1310732, 1, 6, 1310733, 1, 6, 1310734, 1, 6, 1310735, 1, 6, 1310736, 1, 6, 1310737, 1, 6, 1310738, 1, 6, 1310739, 1, 6, 1310740, 1, 6, 1310741, 1, 6, 1310742, 1, 196613, 1310743, 1, 65538, 1310744, 1, 196615 )
+
+[node name="PlayerSpawn" parent="." index="2"]
+position = Vector2( 112, 93 )
+
+[node name="BOSS2" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( 73, 26 )
+
+[node name="SpinPosition" type="Position2D" parent="." index="4"]
+position = Vector2( 73, 68 )
+
+[node name="RandomBossPositions" type="Node2D" parent="." index="5"]
+
+[node name="Position2D" type="Position2D" parent="RandomBossPositions" index="0"]
+position = Vector2( 31, 41 )
+
+[node name="Position2D2" type="Position2D" parent="RandomBossPositions" index="1"]
+position = Vector2( 109, 47 )
+
+[node name="Position2D3" type="Position2D" parent="RandomBossPositions" index="2"]
+position = Vector2( 31, 87 )
+
+[node name="Position2D4" type="Position2D" parent="RandomBossPositions" index="3"]
+position = Vector2( 110, 84 )
+
+[node name="Position2D5" type="Position2D" parent="RandomBossPositions" index="4"]
+position = Vector2( 73, 27 )
+
+[node name="ZapGate" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( 12, 111 )
+
+[node name="RayCast2D" parent="ZapGate" index="0"]
+cast_to = Vector2( 200, 0 )
+
+[node name="ZapGate2" parent="." index="7" instance=ExtResource( 3 )]
+position = Vector2( 138, 111 )
+rotation = 3.14159
+
+[node name="RayCast2D" parent="ZapGate2" index="0"]
+cast_to = Vector2( 200, 0 )
+
+[node name="AnimationPlayer" parent="ZapGate2" index="6"]
+anims/run = SubResource( 1 )
+
+[node name="Particles" parent="ZapGate2" index="8"]
+position = Vector2( 38, 3.0001 )
+
+[node name="BossMeter" parent="." index="8" instance=ExtResource( 4 )]
+
+[node name="DOOR" parent="." index="9" instance=ExtResource( 5 )]
+visible = false
+collision_layer = 0
+tile_data = PoolIntArray( 851968, 1, 1, 851969, 1, 3, 851992, 1, 65543, 917504, 1, 7, 917505, 1, 5, 917528, 1, 65541 )
+
+[node name="Door" parent="." index="10" instance=ExtResource( 7 )]
+position = Vector2( 153, 84 )
+connection = ExtResource( 8 )
+next_level = "res://levels/Level_50.tscn"
+
+[node name="boss_trigger" type="Area2D" parent="." index="11"]
+position = Vector2( 184, 72 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss_trigger" index="0"]
+position = Vector2( -109, 13 )
+shape = SubResource( 2 )
+
+[node name="Door2" parent="." index="12" instance=ExtResource( 7 )]
+position = Vector2( -3, 84 )
+rotation = 3.14159
+connection = ExtResource( 9 )
+next_level = "res://levels/Level_51.tscn"
+
+[node name="TOKEN" type="Label" parent="." index="13"]
+visible = false
+margin_left = 1.0
+margin_top = 65.0
+margin_right = 151.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0.760784, 0.776471, 0.8, 0.701961 )
+text = "TOKEN:
+44$AB9"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicTrigger" type="Area2D" parent="." index="14"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger" index="0"]
+position = Vector2( 6, 84 )
+shape = SubResource( 3 )
+
+[node name="MusicTrigger2" type="Area2D" parent="." index="15"]
+position = Vector2( 138, 0 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger2" index="0"]
+position = Vector2( 6, 84 )
+shape = SubResource( 3 )
+[connection signal="boss_died" from="BOSS2" to="." method="_on_BOSS2_boss_died"]
+[connection signal="update_health" from="BOSS2" to="." method="_on_BOSS2_update_health"]
+[connection signal="body_entered" from="boss_trigger" to="." method="_on_boss_trigger_body_entered"]
+[connection signal="body_entered" from="MusicTrigger" to="." method="_on_MusicTrigger_body_entered"]
+[connection signal="body_entered" from="MusicTrigger2" to="." method="_on_MusicTrigger_body_entered"]
+
+[editable path="ZapGate"]
+
+[editable path="ZapGate2"]

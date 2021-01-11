@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://world/Gate.gd" type="Script" id=2]
+[ext_resource path="res://world/light.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2, 6 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "zap"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 360.0, 0.0 ]
+}
+
+[node name="Gate" type="StaticBody2D"]
+collision_layer = 3
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "zap"
+playback_speed = 0.2
+anims/zap = SubResource( 2 )
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PoolVector2Array( -1, -6, -0.461235, -3.84495, 0, -2, -1, 1, 1, 2, 0.578651, 3.68539, 0, 6 )
+width = 1.0
+default_color = Color( 0.996078, 1, 1, 0.952941 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( -1, -6, -0.461235, -3.84495, 0, -2, -1, 1, 1, 2, 0.578651, 3.68539, 0, 6 )
+width = 1.0
+default_color = Color( 0.298039, 0.701961, 1, 0.952941 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -2.38419e-07, 2.84217e-14 )
+rotation = 3.14159
+scale = Vector2( 0.0213152, 0.0332031 )
+texture = ExtResource( 3 )
+texture_scale = 1.4
+color = Color( 0.831373, 0.933333, 1, 1 )
+energy = 0.6
+range_height = 1570.1
+range_layer_min = -7
+range_layer_max = 6
+range_item_cull_mask = 63

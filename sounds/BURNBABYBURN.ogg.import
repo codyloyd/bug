@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BURNBABYBURN.ogg-0df900ed8948fb4a86be68c551afab94.oggstr"
+
+[deps]
+
+source_file="res://sounds/BURNBABYBURN.ogg"
+dest_files=[ "res://.import/BURNBABYBURN.ogg-0df900ed8948fb4a86be68c551afab94.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

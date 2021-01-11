@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/walker.png" type="Texture" id=2]
+[ext_resource path="res://enemies/Walker.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="Animation" id=2]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 3, 3 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4, 4 )
+
+[node name="Walker" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+MAX_SPEED = 3
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 5, 0 )
+texture = ExtResource( 2 )
+hframes = 4
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 4, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "walk"
+anims/walk = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 4, 1 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 4, 0 )
+shape = SubResource( 4 )
+
+[node name="EnemyStats" parent="." index="5"]
+max_health = 5
+
+[node name="FloorLeft" type="RayCast2D" parent="." index="6"]
+position = Vector2( 1, 4 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+collision_mask = 2
+
+[node name="FloorRight" type="RayCast2D" parent="." index="7"]
+position = Vector2( 6, 4 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+collision_mask = 2
+
+[node name="WallRight" type="RayCast2D" parent="." index="8"]
+position = Vector2( 5, 0 )
+enabled = true
+cast_to = Vector2( 4, 0 )
+collision_mask = 2
+
+[node name="WallLeft" type="RayCast2D" parent="." index="9"]
+position = Vector2( 3, 0 )
+enabled = true
+cast_to = Vector2( -4, 0 )
+collision_mask = 2
+
+[node name="Head" type="Position2D" parent="." index="10"]
+position = Vector2( 3, -1 )
+
+[editable path="Hitbox"]
+
+[editable path="Hurtbox"]

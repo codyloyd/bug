@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/lowrextheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/bomb-icon.png" type="Texture" id=2]
+[ext_resource path="res://UI/zap-icon.png" type="Texture" id=3]
+[ext_resource path="res://UI/blaster-icon.png" type="Texture" id=4]
+[ext_resource path="res://menus/WeaponSelect.gd" type="Script" id=5]
+[ext_resource path="res://UI/smallfont.tres" type="Theme" id=6]
+
+[node name="WeaponSelect" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.490196 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 228.0
+margin_bottom = 13.0
+text = "Select Weapon"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_left = 32.0
+margin_bottom = 7.0
+rect_scale = Vector2( 2, 2 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 4.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlasterButton" type="TextureButton" parent="HBoxContainer"]
+margin_left = 36.0
+margin_right = 45.0
+margin_bottom = 7.0
+texture_normal = ExtResource( 4 )
+
+[node name="BombButton" type="TextureButton" parent="HBoxContainer"]
+visible = false
+margin_left = 43.0
+margin_right = 52.0
+margin_bottom = 7.0
+texture_normal = ExtResource( 2 )
+
+[node name="ZapRayButton" type="TextureButton" parent="HBoxContainer"]
+pause_mode = 2
+visible = false
+margin_left = 49.0
+margin_right = 58.0
+margin_bottom = 7.0
+texture_normal = ExtResource( 3 )
+
+[node name="WeaponName" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -0.36364
+margin_top = -22.0
+margin_right = -0.363647
+margin_bottom = -1.0
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponDesc" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -62.0
+margin_right = -8.0
+margin_bottom = -14.0
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hotkey" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.727295
+margin_top = -8.81824
+margin_right = 0.727295
+margin_bottom = -1.81824
+theme = ExtResource( 6 )
+text = "tip: press a weapon's hotkey to switch on the fly"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="HBoxContainer/BlasterButton" to="." method="_on_BlasterButton_mouse_entered"]
+[connection signal="pressed" from="HBoxContainer/BlasterButton" to="." method="_on_BlasterButton_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/BombButton" to="." method="_on_BombButton_mouse_entered"]
+[connection signal="pressed" from="HBoxContainer/BombButton" to="." method="_on_BombButton_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/ZapRayButton" to="." method="_on_ZapRayButton_mouse_entered"]
+[connection signal="pressed" from="HBoxContainer/ZapRayButton" to="." method="_on_ZapRayButton_pressed"]

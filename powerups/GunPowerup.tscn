@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://powerups/gunpup.png" type="Texture" id=1]
+[ext_resource path="res://powerups/Powerup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://powerups/upgradeparts.tscn" type="PackedScene" id=3]
+[ext_resource path="res://powerups/GunPowerup.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.79945
+
+[sub_resource type="Animation" id=2]
+resource_name = "run"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ) ]
+}
+
+[node name="GunPowerup" groups=[
+"brick",
+] instance=ExtResource( 2 )]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( -0.263073, -2.14841 )
+shape = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="." index="1" instance=ExtResource( 3 )]
+position = Vector2( -0.0438461, -4.32275 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+autoplay = "run"
+anims/run = SubResource( 2 )

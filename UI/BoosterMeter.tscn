@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/BoosterMeter.gd" type="Script" id=1]
+
+[node name="BoosterMeter" type="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = -1.0
+margin_bottom = -0.999996
+color = Color( 1, 1, 1, 0.509804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DisplayTimer" type="Timer" parent="."]
+[connection signal="timeout" from="DisplayTimer" to="." method="_on_DisplayTimer_timeout"]

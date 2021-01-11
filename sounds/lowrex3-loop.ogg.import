@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lowrex3-loop.ogg-df5c60fab3ca2e9ea37e22d949e29694.oggstr"
+
+[deps]
+
+source_file="res://sounds/lowrex3-loop.ogg"
+dest_files=[ "res://.import/lowrex3-loop.ogg-df5c60fab3ca2e9ea37e22d949e29694.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
