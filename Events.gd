@@ -44,3 +44,5 @@ signal gun_unlocked
 signal gun_upgrade
 
 signal zap_ray_upgrade
+
+signal zap_ray_cooldown_update(percentage, can_fire)

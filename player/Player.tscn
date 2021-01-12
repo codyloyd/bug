@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/char.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://CollisionBoxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://CollisionBoxes/Hitbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://world/light.png" type="Texture" id=7]
+[ext_resource path="res://player/ZapRayMeter.gd" type="Script" id=8]
+[ext_resource path="res://player/ZapRayMeter.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "dead"
@@ -455,8 +457,21 @@ shape = SubResource( 7 )
 autoplay = "reset"
 anims/cutscene = SubResource( 8 )
 anims/reset = SubResource( 9 )
+
+[node name="ZapRayMeter" parent="." instance=ExtResource( 9 )]
+margin_left = -5.0
+margin_right = -4.0
+margin_bottom = 2.0
+rect_pivot_offset = Vector2( 0, 4 )
+color = Color( 1, 1, 1, 1 )
+script = ExtResource( 8 )
+
+[node name="Timer" type="Timer" parent="ZapRayMeter"]
+wait_time = 3.0
+one_shot = true
 [connection signal="hit" from="Hurtbox" to="." method="_on_Hurtbox_hit"]
 [connection signal="area_entered" from="PowerupDetector" to="." method="_on_PowerupDetector_area_entered"]
+[connection signal="timeout" from="ZapRayMeter/Timer" to="ZapRayMeter" method="_on_Timer_timeout"]
 
 [editable path="Hurtbox"]
 

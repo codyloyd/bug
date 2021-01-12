@@ -38,14 +38,14 @@ func on_select_weapon(weapon):
 	if weapon == 'burst_gun' && SaverAndLoader.custom_data.gun_unlocked:
 		$BombGun.set_process(false)
 		$BurstGun.set_process(true)
-		$ZapRay.set_process(false)
+		$ZapRay.turn_off()
 
 	if weapon == 'bomb_gun' && SaverAndLoader.custom_data.bombs_unlocked:
 		$BombGun.set_process(true)
 		$BurstGun.set_process(false)
-		$ZapRay.set_process(false)
+		$ZapRay.turn_off()
 
 	if weapon == 'zap_ray' && SaverAndLoader.custom_data.zap_ray_unlocked:
 		$BombGun.set_process(false)
 		$BurstGun.set_process(false)
-		$ZapRay.set_process(true)
+		$ZapRay.turn_on()

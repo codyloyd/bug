@@ -6,6 +6,10 @@ onready var beam = $Line2D
 onready var light = $Light2D
 
 var level = 1
+var usage_time = 1
+var cooldown_timer = usage_time
+var can_fire = true
+var on = false
 
 func _ready():
 	set_process(false)
@@ -23,14 +27,37 @@ func set_beam_length():
 
 	ray.cast_to = Vector2((points - 1) * 8, 0)
 
-func _process(_delta):
-	if Input.is_action_pressed("fire"):
+func turn_off():
+	self.visible = false
+	ray.enabled = false
+	on = false
+
+func turn_on():
+	set_process(true)
+	on = true
+
+func _process(delta):
+	var cooldown_percentage = cooldown_timer/usage_time
+	if on and Input.is_action_pressed("fire") and can_fire:
 		self.visible = true
 		ray.enabled = true
 		gun.pixel.visible = false
+		cooldown_timer = max(cooldown_timer - delta, 0.001)
+		if cooldown_timer <= 0.002:
+			can_fire = false
+		Events.emit_signal("zap_ray_cooldown_update", cooldown_percentage, can_fire, true)
 	else:
+		Events.emit_signal("zap_ray_cooldown_update", cooldown_percentage, can_fire, false)
+		if cooldown_timer < usage_time:
+			cooldown_timer += delta * .3
+		if cooldown_timer > .5:
+			can_fire = true
+		else:
+			can_fire = false
 		self.visible = false
 		ray.enabled = false
+		if not on and cooldown_timer >= usage_time:
+			set_process(false)
 
 func wiggle():
 	light.texture_scale = rand_range(.8, 1.3)
