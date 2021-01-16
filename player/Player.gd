@@ -30,6 +30,7 @@ var time_left_ground = 0.0
 var last_grounded = false
 var facing_right = true
 var has_boosted_since_last_ground
+var boost_activated = false
 var booster_timer_max = 1.5
 var booster_timer = booster_timer_max 
 var invulnerable = false
@@ -72,6 +73,19 @@ func _process(_delta):
 
 	if Input.is_action_pressed("exit"):
 		pass
+	
+	var tween = get_node("Tween")
+	if Input.is_action_pressed("look_down"):
+		tween.interpolate_property(camera_follower, "position",
+					camera_follower.position, Vector2(0, 20), .2,
+					Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		tween.start()
+
+	if Input.is_action_just_released("look_down"):
+		tween.interpolate_property(camera_follower, "position",
+					camera_follower.position, Vector2(0, 0), .2,
+					Tween.TRANS_LINEAR, Tween.EASE_IN)
+		tween.start()
 
 
 func _physics_process(delta):
@@ -92,9 +106,9 @@ func _physics_process(delta):
 			move_vec.x += 1
 
 		if PlayerStats.boosters_unlocked:
-			is_boosting = Input.is_action_pressed("booster")
-			if Input.is_action_just_pressed("booster") and not $Ground.is_colliding():
-				jump()
+			if Input.is_action_just_pressed("jump") and not can_jump():
+				boost_activated = true
+			is_boosting = boost_activated and Input.is_action_pressed("jump") and not $Ground.is_colliding()
 
 		if is_boosting and booster_timer > 0:
 			booster_particles.emitting = true
@@ -113,6 +127,7 @@ func _physics_process(delta):
 
 	if $Ground.is_colliding():
 		has_boosted_since_last_ground = false
+		boost_activated = false
 
 	if has_boosted_since_last_ground:
 		velo += move_vec * booster_move_speed - booster_drag * Vector2(velo.x, 0)
@@ -133,15 +148,9 @@ func _physics_process(delta):
 	if pressed_jump:
 		time_pressed_jump = get_cur_time()
 	
-	if (pressed_jump and cur_grounded):
+	if (pressed_jump and can_jump()):
 		jump()
-	elif (!last_grounded and cur_grounded and get_cur_time() - time_pressed_jump < jump_buffer):
-		jump()
-	elif pressed_jump and get_cur_time() - time_left_ground < jump_buffer:
-		jump()
-
 	
-
 	if Input.is_action_pressed("jump"):
 		velo.y += less_gravity
 	elif has_boosted_since_last_ground:
@@ -181,6 +190,15 @@ func _physics_process(delta):
 	check_npc_interaction()
 	
 	last_grounded = cur_grounded
+
+func can_jump():
+	if $Ground.is_colliding():
+		return true
+	elif (!last_grounded and $Ground.is_colliding() and get_cur_time() - time_pressed_jump < jump_buffer):
+		return true
+	elif get_cur_time() - time_left_ground < jump_buffer:
+		return true
+
 
 func jump():
 	if dead or cutscene_control:

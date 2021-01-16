@@ -4,7 +4,7 @@ var PlayerStats = ResourceLoader.PlayerStats
 
 func _ready(): 
 	# MUTE ALL AUDIO
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	# AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	if not SaverAndLoader.save_file_exists():
 		$VBoxContainer/LoadButton.visible = false
 

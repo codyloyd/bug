@@ -376,6 +376,8 @@ cutscene_control = true
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 0.184631, 0.184637 )
 scale = Vector2( 0.150391, 0.147217 )
+z_index = 3
+z_as_relative = false
 texture = ExtResource( 7 )
 energy = 0.7
 range_layer_min = -100
@@ -403,6 +405,7 @@ initial_velocity_random = 1.0
 color_ramp = SubResource( 6 )
 
 [node name="PlayerGun" parent="." instance=ExtResource( 3 )]
+z_index = 2
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 0, 0, 1 )
@@ -469,6 +472,8 @@ script = ExtResource( 8 )
 [node name="Timer" type="Timer" parent="ZapRayMeter"]
 wait_time = 3.0
 one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="hit" from="Hurtbox" to="." method="_on_Hurtbox_hit"]
 [connection signal="area_entered" from="PowerupDetector" to="." method="_on_PowerupDetector_area_entered"]
 [connection signal="timeout" from="ZapRayMeter/Timer" to="ZapRayMeter" method="_on_Timer_timeout"]

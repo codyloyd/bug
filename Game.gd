@@ -2,7 +2,7 @@ extends Node2D
 
 var MainInstances = ResourceLoader.MainInstances
 var PlayerStats = ResourceLoader.PlayerStats
-var level_00 = load('res://levels/Level_62.tscn')
+var level_00 = load('res://levels/Level_00.tscn')
 onready var current_level = null
 onready var level_change_timer = $LevelChangeTimer
 onready var viewport = $ViewportContainer/Viewport
@@ -10,8 +10,10 @@ onready var viewport = $ViewportContainer/Viewport
 var is_changing_levels = false
 var prev_level
 
+onready var camera = MainInstances.WorldCamera
+
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	# Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 	VisualServer.set_default_clear_color(Color('#0e0c0f'))
 	Events.connect("resize_camera", self, "on_resize_camera")
@@ -39,7 +41,8 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		pass
+			# Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_Player_hit_door(door):
 	call_deferred("change_level", door)
@@ -82,7 +85,6 @@ func set_camera_limits(level):
 	camera.limit_left = map_rect.position.x * cell.x + level.global_position.x
 
 func on_resize_camera(center_position, extents):
-	var camera = MainInstances.WorldCamera
 	camera.smoothing_enabled = true
 
 	var tweenTime = 1

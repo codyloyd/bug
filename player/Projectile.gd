@@ -3,8 +3,10 @@ extends Node2D
 var ExplosionEffect = preload("res://effects/SmallExplosion.tscn")
 
 var velocity = Vector2.ZERO
+var spread = Vector2.ZERO
 
 func _process(delta):
+	velocity = velocity + spread
 	position += velocity * delta
 
 
