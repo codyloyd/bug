@@ -1,36 +1,36 @@
 extends Node
 
-# var custom_data = {
-# 	boss1_defeated = false,
-# 	boss2_defeated = false,
-# 	boss3_defeated = false,
-# 	met_the_system = false,
-# 	gun_unlocked = false,
-# 	burst_limit = 1,
-# 	boosters_unlocked = false,
-# 	bombs_unlocked = false,
-# 	zap_ray_unlocked = false,
-# 	zap_ray_level = 1,
-# 	max_health = 4,
-# 	bricks = [],
-# 	music_list_index = 1
-# }
-
 var custom_data = {
 	boss1_defeated = false,
 	boss2_defeated = false,
 	boss3_defeated = false,
 	met_the_system = false,
-	gun_unlocked = true,
-	burst_limit = 7,
-	boosters_unlocked = true,
-	bombs_unlocked = true,
-	zap_ray_unlocked = true,
-	zap_ray_level = 2,
-	max_health = 8,
+	gun_unlocked = false,
+	burst_limit = 1,
+	boosters_unlocked = false,
+	bombs_unlocked = false,
+	zap_ray_unlocked = false,
+	zap_ray_level = 1,
+	max_health = 4,
 	bricks = [],
 	music_list_index = 1
 }
+
+# var custom_data = {
+# 	boss1_defeated = false,
+# 	boss2_defeated = false,
+# 	boss3_defeated = false,
+# 	met_the_system = false,
+# 	gun_unlocked = true,
+# 	burst_limit = 7,
+# 	boosters_unlocked = true,
+# 	bombs_unlocked = true,
+# 	zap_ray_unlocked = true,
+# 	zap_ray_level = 2,
+# 	max_health = 8,
+# 	bricks = [],
+# 	music_list_index = 1
+# }
 
 var is_loading = false
 
