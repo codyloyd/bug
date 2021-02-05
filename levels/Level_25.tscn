@@ -214,7 +214,7 @@ connection = ExtResource( 5 )
 next_level = "res://levels/Level_26.tscn"
 
 [node name="PlayerSpawn" parent="." index="16"]
-position = Vector2( 51, 296 )
+position = Vector2( 103.522, 12 )
 
 [node name="ZapGate" parent="." index="17" instance=ExtResource( 13 )]
 position = Vector2( 12, 183 )

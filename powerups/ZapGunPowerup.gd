@@ -9,5 +9,6 @@ func on_powerup_triggered():
 	if not SaverAndLoader.custom_data.zap_ray_unlocked:
 		Sfx.play("Powerup", 1, -10)
 		Events.emit_signal('display_message', 'zap-ray activated', 'press R to switch weapons')
+		Events.emit_signal('zap_ray_activated')
 		SaverAndLoader.custom_data.zap_ray_unlocked = true
 		.on_powerup_triggered()

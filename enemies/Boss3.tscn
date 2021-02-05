@@ -185,8 +185,8 @@ rotation = 1.5708
 shape = SubResource( 6 )
 
 [node name="EnemyStats" parent="." index="5"]
-max_health = 2
-health = 2
+max_health = 300
+health = 300
 
 [node name="Timer" type="Timer" parent="." index="6"]
 wait_time = 2.0

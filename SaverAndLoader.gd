@@ -17,9 +17,10 @@ var custom_data = {
 }
 
 # var custom_data = {
-# 	boss1_defeated = false,
+# 	boss1_defeated = true,
 # 	boss2_defeated = false,
 # 	boss3_defeated = false,
+# 	miniboss_1_defeated = false,
 # 	met_the_system = false,
 # 	gun_unlocked = true,
 # 	burst_limit = 7,

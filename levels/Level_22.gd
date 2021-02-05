@@ -43,8 +43,12 @@ func _on_BOSS3_boss_died():
 	Sfx.play("GlitchEnd", 1, 0)
 	Events.emit_signal("screen_shake", .2, 3)
 	Events.emit_signal("glitch", .03, 2)
-	Music.list_index = 1
-	Music.play_music()
+	if SaverAndLoader.custom_data.boss2_defeated:
+		Music.list_index = 1
+		Music.play_music()
+	else:
+		Music.list_index = 5
+		Music.play_music()
 	PlayerStats.health = PlayerStats.max_health
 	yield(get_tree().create_timer(2), 'timeout')
 	player.set_process(true)

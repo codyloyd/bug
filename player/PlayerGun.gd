@@ -2,13 +2,37 @@ extends Node2D
 
 onready var pixel = $Pixel
 onready var muzzle = $Muzzle
+onready var debouncer = $ScrollWheelDebouncer
 
 const Bullet = preload("res://player/PlayerBullet.tscn")
+var current_weapon = 0 
+var weapons = ['burst_gun']
 
 func _ready():
 	$BurstGun.set_process(true)
 	Events.connect('select_weapon', self, 'on_select_weapon')
-	pass
+	Events.connect('bombs_activated', self, 'on_activate_bombs')
+	Events.connect('zap_ray_activated', self, 'on_activate_zap_ray')
+	set_process_input(true)
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if debouncer.is_stopped():
+			if event.button_index == BUTTON_WHEEL_UP:
+				next_weapon()
+			if event.button_index == BUTTON_WHEEL_DOWN:
+				prev_weapon()
+
+func next_weapon():
+	debouncer.start()
+	current_weapon = (current_weapon + 1) % weapons.size()
+	Events.emit_signal('select_weapon', weapons[current_weapon])
+
+func prev_weapon():
+	debouncer.start()
+	current_weapon = (current_weapon - 1) % weapons.size()
+	Events.emit_signal('select_weapon', weapons[current_weapon])
+
 
 func _process(_delta):
 	if not SaverAndLoader.custom_data.gun_unlocked:
@@ -49,3 +73,13 @@ func on_select_weapon(weapon):
 		$BombGun.set_process(false)
 		$BurstGun.set_process(false)
 		$ZapRay.turn_on()
+
+func on_activate_bombs():
+	weapons.append('bomb_gun')
+	print(weapons)
+	Events.emit_signal('select_weapon', 'bomb_gun')
+
+func on_activate_zap_ray():
+	weapons.append('zap_ray')
+	print(weapons)
+	Events.emit_signal('select_weapon', 'zap_ray')

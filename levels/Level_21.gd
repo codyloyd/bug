@@ -35,7 +35,6 @@ func _on_BOSS2_boss_died():
 	player.set_physics_process(false)
 	$MusicTrigger.set_collision_layer_bit(1, true)
 	$MusicTrigger2.set_collision_layer_bit(1, true)
-	Music.list_index = 3
 	Music.play_music()
 	$TOKEN.visible = true
 	SaverAndLoader.custom_data.boss2_defeated = true
@@ -60,7 +59,7 @@ func _on_MusicTrigger_body_entered(_body):
 		Music.list_index = 1
 		Music.play_music()
 	else:
-		Music.list_index = 4
+		Music.list_index = 5
 		Music.play_music()
 	$MusicTrigger.set_collision_layer_bit(1, false)
 	$MusicTrigger2.set_collision_layer_bit(1, false)

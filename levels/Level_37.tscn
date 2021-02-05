@@ -35,7 +35,7 @@ position = Vector2( 64, 56 )
 position = Vector2( 49, 65 )
 
 [node name="ZapGunPowerup" parent="." index="8" instance=ExtResource( 7 )]
-position = Vector2( 50, -11 )
+position = Vector2( 50.1168, -10.8832 )
 
 [node name="RedGate" parent="." index="9" instance=ExtResource( 8 )]
 position = Vector2( 105, -36 )

@@ -11,6 +11,8 @@ signal boosters_activated
 
 signal bombs_activated
 
+signal zap_ray_activated
+
 signal black_screen
 
 signal clear_screen

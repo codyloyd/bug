@@ -189,7 +189,6 @@ position = Vector2( 1303, 72 )
 position = Vector2( 1418, 90 )
 
 [node name="GREEN2" type="Node2D" parent="."]
-visible = false
 
 [node name="Level_19" parent="GREEN2" instance=ExtResource( 20 )]
 position = Vector2( 729, 234 )

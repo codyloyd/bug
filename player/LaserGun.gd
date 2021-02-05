@@ -73,6 +73,8 @@ func _on_Timer_timeout():
 		wiggle()
  
 func _physics_process(_delta):
+	if not ray.enabled:
+		return
 	var collider = ray.get_collider()
 	if collider is RedSwitch:
 		collider.open_gate()
