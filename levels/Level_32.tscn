@@ -13,6 +13,7 @@
 [ext_resource path="res://levels/Level_32.gd" type="Script" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 52, 29 )
 
 [node name="Level_32" instance=ExtResource( 1 )]
 script = ExtResource( 11 )
@@ -21,7 +22,7 @@ script = ExtResource( 11 )
 tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 3, 196612, 5, 3, 196613, 6, 3, 196613, 7, 3, 196613, 8, 3, 196613, 9, 3, 196613, 10, 3, 196613, 11, 3, 196613, 12, 3, 196613, 13, 3, 196613, 14, 3, 196613, 15, 3, 196613, 16, 3, 196613, 17, 3, 196613, 18, 3, 65543, 65554, 3, 65538, 131090, 3, 65538, 196608, 4, 0, 196626, 3, 65538, 262144, 4, 0, 262162, 3, 65538, 327680, 4, 0, 327681, 4, 0, 327682, 4, 0, 327698, 3, 65538, 393216, 3, 1, 393217, 3, 3, 393218, 4, 0, 393234, 3, 65538, 458752, 3, 65536, 458753, 3, 4, 458770, 3, 65538, 524288, 3, 65536, 524289, 3, 4, 524306, 3, 65538, 589824, 3, 65536, 589825, 3, 4, 589842, 3, 65539, 655360, 3, 7, 655361, 3, 196609, 655362, 3, 196613, 655363, 3, 196613, 655364, 3, 196613, 655365, 3, 196613, 655366, 3, 196613, 655367, 3, 196613, 655368, 3, 196613, 655369, 3, 196614, 655372, 3, 196612, 655373, 3, 196613, 655374, 3, 196613, 655375, 3, 196613, 655376, 3, 196614, 655377, 1, 65537, 655378, 1, 65539 )
 
 [node name="Door2" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 65.312, 69.1828 )
+position = Vector2( 65, 66 )
 rotation = 1.5708
 connection = ExtResource( 4 )
 next_level = "res://levels/Level_33.tscn"
@@ -61,7 +62,7 @@ tile_data = PoolIntArray( 65536, 4, 0, 131072, 4, 0, 655370, 4, 0, 655371, 4, 0 
 [node name="DoorTrigger" type="Area2D" parent="." index="13"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorTrigger" index="0"]
-position = Vector2( 13, 13 )
+position = Vector2( 58, 31 )
 shape = SubResource( 1 )
 [connection signal="boss_died" from="WallBoss1" to="." method="_on_WallBoss1_boss_died"]
 [connection signal="boss_died" from="WallBoss2" to="." method="_on_WallBoss2_boss_died"]

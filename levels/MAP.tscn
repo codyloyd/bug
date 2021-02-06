@@ -265,7 +265,7 @@ position = Vector2( 993, -340 )
 position = Vector2( 993, -457 )
 
 [node name="Level_32" parent="DARK" instance=ExtResource( 33 )]
-position = Vector2( 1568, -463 )
+position = Vector2( 1568.41, -463 )
 
 [node name="Level_33" parent="DARK" instance=ExtResource( 34 )]
 position = Vector2( 1568, -396 )
