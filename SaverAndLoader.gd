@@ -4,6 +4,7 @@ var custom_data = {
 	boss1_defeated = false,
 	boss2_defeated = false,
 	boss3_defeated = false,
+	miniboss_1_defeated = false,
 	met_the_system = false,
 	gun_unlocked = false,
 	burst_limit = 1,

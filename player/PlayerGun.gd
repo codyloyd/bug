@@ -10,9 +10,16 @@ var weapons = ['burst_gun']
 
 func _ready():
 	$BurstGun.set_process(true)
+	if SaverAndLoader.custom_data.bombs_unlocked:
+		weapons.append('bomb_gun')
+	if SaverAndLoader.custom_data.zap_ray_unlocked:
+		weapons.append('zap_ray')
+
 	Events.connect('select_weapon', self, 'on_select_weapon')
 	Events.connect('bombs_activated', self, 'on_activate_bombs')
 	Events.connect('zap_ray_activated', self, 'on_activate_zap_ray')
+	Events.connect('initiate_npc_interaction', self, "disable_gun")
+	Events.connect('end_npc_interaction', self, "enable_gun")
 	set_process_input(true)
 
 func _input(event):
@@ -76,10 +83,20 @@ func on_select_weapon(weapon):
 
 func on_activate_bombs():
 	weapons.append('bomb_gun')
-	print(weapons)
 	Events.emit_signal('select_weapon', 'bomb_gun')
 
 func on_activate_zap_ray():
 	weapons.append('zap_ray')
-	print(weapons)
 	Events.emit_signal('select_weapon', 'zap_ray')
+
+
+func disable_gun():
+	set_process(false)
+	$BombGun.set_process(false)
+	$BurstGun.set_process(false)
+	$ZapRay.turn_off()
+	pixel.visible = false
+
+func enable_gun():
+	Events.emit_signal('select_weapon', 'burst_gun')
+	set_process(true)
