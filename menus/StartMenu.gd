@@ -3,7 +3,7 @@ extends ColorRect
 var PlayerStats = ResourceLoader.PlayerStats
 onready var dialog = $ConfirmationDialog
 onready var viewport = $ViewportContainer/Viewport
-onready var load_button = $ViewportContainer/Viewport/VBoxContainer2/LoadButton
+onready var load_button = $VBoxContainer2/LoadButton
 
 func _ready(): 
 	dialog.connect("confirmed", self, "start_game")

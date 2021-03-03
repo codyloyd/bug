@@ -2,7 +2,7 @@ extends Node2D
 
 var MainInstances = ResourceLoader.MainInstances
 var PlayerStats = ResourceLoader.PlayerStats
-var level_00 = load('res://levels/Level_57.tscn')
+var level_00 = load('res://levels/Level_00.tscn')
 onready var current_level = null
 onready var level_change_timer = $LevelChangeTimer
 onready var viewport = $ViewportContainer/Viewport
